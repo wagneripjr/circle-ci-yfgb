@@ -13,7 +13,7 @@ jobs:
       - run: mkdir workspace
       - run:
           name: "write hello world"
-          command: echo "Hello World" > ~/workspace/output.txt
+          command: echo "Hello World" > workspace/output.txt
       - persist_to_workspace:
           root: workspace
           paths:
