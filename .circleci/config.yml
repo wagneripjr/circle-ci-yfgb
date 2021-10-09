@@ -10,9 +10,9 @@ jobs:
     executor: my-executor
     steps:
       - checkout
+      - run: mkdir workspace
       - run:
           name: "write hello world"
-          command: mkdir workspace
           command: echo "Hello World" > ~/workspace/output.txt
       - persist_to_workspace:
           root: workspace
