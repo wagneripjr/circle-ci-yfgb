@@ -33,3 +33,4 @@ workflows:
       - say-world:
           requires:
           - say-hello
+      - say-env
