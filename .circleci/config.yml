@@ -4,8 +4,6 @@ executors:
   my-executor:
     docker:
       - image: cimg/base:stable
-    working_directory: /tmp
-
 
 jobs:
   write-hello:
@@ -14,7 +12,8 @@ jobs:
       - checkout
       - run:
           name: "write hello world"
-          command: echo "Hello World" > workspace/output.txt
+          command: mkdir workspace
+          command: echo "Hello World" > ~/workspace/output.txt
       - persist_to_workspace:
           root: workspace
           paths:
@@ -23,7 +22,7 @@ jobs:
     executor: my-executor
     steps:
       - attach_workspace:
-          at: /tmp/workspace
+          at: workspace
       - run:
           name: "Say hello"
           command: cat /tmp/workspace/output.txt
