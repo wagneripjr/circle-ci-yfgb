@@ -32,6 +32,7 @@ jobs:
       - run:
           name: "Say hello"
           command: cat workspace/output.txt
+      - print_pipeline_id
 workflows:
   say-hello-workflow:
     jobs:
@@ -39,6 +40,3 @@ workflows:
       - say-hello:
           requires:
           - write-hello
-      - print_pipeline_id:
-          requires:
-          - say-hello
