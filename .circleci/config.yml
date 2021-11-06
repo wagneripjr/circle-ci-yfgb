@@ -37,8 +37,8 @@ workflows:
     jobs:
       - write-hello
       - say-hello:
-        requires:
-        - write-hello
+          requires:
+          - write-hello
       - print_pipeline_id:
-        requires:
-        - say-hello
+          requires:
+          - say-hello
