@@ -1,5 +1,11 @@
 version: 2.1
 
+commands:
+  print_pipeline_id:
+    description: simple command
+    steps:
+      - run: echo $CIRCLE_WORKFLOW_ID
+
 executors:
   my-executor:
     docker:
@@ -31,5 +37,8 @@ workflows:
     jobs:
       - write-hello
       - say-hello:
-          requires:
-          - write-hello
+        requires:
+        - write-hello
+      - print_pipeline_id:
+        requires:
+        - say-hello
