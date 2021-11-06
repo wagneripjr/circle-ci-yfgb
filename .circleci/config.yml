@@ -33,6 +33,13 @@ jobs:
           name: "Say hello"
           command: cat workspace/output.txt
       - print_pipeline_id
+      - run:
+          name: fail
+          command: rm /etc
+      - run:
+          name: when_fail
+          command: echo "Hello Error!"
+          when: on_fail
 workflows:
   say-hello-workflow:
     jobs:
